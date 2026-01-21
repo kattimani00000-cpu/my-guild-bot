@@ -1,0 +1,14 @@
+name: Guild Glory Bot
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Bot
+        run: python bot.py
+        
