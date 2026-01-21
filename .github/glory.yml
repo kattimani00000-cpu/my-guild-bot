@@ -1,0 +1,21 @@
+name: Guild Glory Bot
+on:
+  schedule:
+    - cron: '*/5 * * * *' # ప్రతి 5 నిమిషాలకు ఒకసారి ఆటోమేటిక్‌గా రన్ అవుతుంది
+  workflow_dispatch: # మనం ఎప్పుడు కావాలంటే అప్పుడు నొక్కడానికి
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run Bot
+        run: python bot.py
+        
